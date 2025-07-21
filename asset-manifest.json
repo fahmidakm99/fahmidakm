@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/fahmidakm99.github.io/static/css/main.c96fc1fe.css",
-    "main.js": "/fahmidakm99.github.io/static/js/main.c20c7c81.js",
-    "static/js/453.438d9e50.chunk.js": "/fahmidakm99.github.io/static/js/453.438d9e50.chunk.js",
-    "static/media/profile.jpg": "/fahmidakm99.github.io/static/media/profile.6fbe41c50457c99d839b.jpg",
-    "index.html": "/fahmidakm99.github.io/index.html",
-    "main.c96fc1fe.css.map": "/fahmidakm99.github.io/static/css/main.c96fc1fe.css.map",
-    "main.c20c7c81.js.map": "/fahmidakm99.github.io/static/js/main.c20c7c81.js.map",
-    "453.438d9e50.chunk.js.map": "/fahmidakm99.github.io/static/js/453.438d9e50.chunk.js.map"
+    "main.css": "/fahmidakm/static/css/main.c96fc1fe.css",
+    "main.js": "/fahmidakm/static/js/main.adb9d46a.js",
+    "static/js/453.438d9e50.chunk.js": "/fahmidakm/static/js/453.438d9e50.chunk.js",
+    "static/media/profile.jpg": "/fahmidakm/static/media/profile.6fbe41c50457c99d839b.jpg",
+    "index.html": "/fahmidakm/index.html",
+    "main.c96fc1fe.css.map": "/fahmidakm/static/css/main.c96fc1fe.css.map",
+    "main.adb9d46a.js.map": "/fahmidakm/static/js/main.adb9d46a.js.map",
+    "453.438d9e50.chunk.js.map": "/fahmidakm/static/js/453.438d9e50.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c96fc1fe.css",
-    "static/js/main.c20c7c81.js"
+    "static/js/main.adb9d46a.js"
   ]
 }
