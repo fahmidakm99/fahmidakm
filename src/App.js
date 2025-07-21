@@ -17,6 +17,8 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
+import vdo from './assets/vdo.mp4';
+import bg5 from './assets/bg5.jpg';
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
       </div>
      <div
         className="font-sans text-gray-500 bg-cover bg-center bg-no-repeat"
-       style={{ backgroundImage: "url('/assets/bg5.jpg')" }}
+       style={{ backgroundImage: `url(${bg5})` }}
 
       >
       <Hero />
@@ -49,7 +51,7 @@ function App() {
           muted
           loop
           playsInline
-          src="/assets/vdo.mp4" // Make sure the video exists in /public/videos/
+          src={vdo}
           type="video/mp4"
         />
         <div className="relative z-10 bg-black/60 px-6 py-16">
