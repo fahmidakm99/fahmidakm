@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 
 const Model = () => {
-  const gltf = useGLTF("/cute.glb");
+  const gltf = useGLTF("assets/cute.glb");
   const modelRef = useRef();
 
   // Slow auto rotation

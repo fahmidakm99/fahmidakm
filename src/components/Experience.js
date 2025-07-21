@@ -15,7 +15,7 @@ const experiences = [
 ● Created responsive, user-friendly UIs using AngularJS, Ionic, Bootstrap, jQuery, and CSS.  <br> 
 ● Contributed to scalable, maintainable solutions aligned with real-world operational workflows.<br> 
     `,
-    logo: "/ebay.png",
+    logo: "/assets/ebay.png",
   },
   {
     role: "Frontend Developer",
@@ -33,7 +33,7 @@ const experiences = [
 ● Led site-wide upgrades for Raptor and Raptor IO applications, optimizing system performance.  <br> 
 ● Practiced Agile methodologies to ensure rapid, iterative development and continuous improvement.<br> 
     `,
-    logo: "/aker.png",
+    logo: "/assets/aker.png",
   },
 ];
 

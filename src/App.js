@@ -25,7 +25,7 @@ function App() {
       </div>
      <div
         className="font-sans text-gray-500 bg-cover bg-center bg-no-repeat"
-       style={{ backgroundImage: "url('/bg5.jpg')" }}
+       style={{ backgroundImage: "url('/assets/bg5.jpg')" }}
 
       >
       <Hero />
@@ -49,7 +49,7 @@ function App() {
           muted
           loop
           playsInline
-          src="/vdo.mp4" // Make sure the video exists in /public/videos/
+          src="/assets/vdo.mp4" // Make sure the video exists in /public/videos/
           type="video/mp4"
         />
         <div className="relative z-10 bg-black/60 px-6 py-16">
