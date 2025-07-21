@@ -4,7 +4,7 @@ import CoverImg from './cover-recipe.jpg';
 const projectData = [
   {
     title: "Recipe App",
-    image: {CoverImg},
+    image: CoverImg,
     tech: ["Angular", "Ionic", "Firebase"],
     description:
       "A cross-platform recipe management app designed for mobile and web. It helps users plan meals and store recipes with a focus on personalization and accessibility.",
