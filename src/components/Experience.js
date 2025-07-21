@@ -1,7 +1,9 @@
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import LogoGrid from "./LogoGrid";
+import Aker from "./aker.png";
+import Ebay from "./ebay.png";
+
 const experiences = [
   {
     role: "Java Full Stack Developer",
@@ -15,7 +17,7 @@ const experiences = [
 ● Created responsive, user-friendly UIs using AngularJS, Ionic, Bootstrap, jQuery, and CSS.  <br> 
 ● Contributed to scalable, maintainable solutions aligned with real-world operational workflows.<br> 
     `,
-    logo: "/assets/ebay.png",
+    logo: "Ebay",
   },
   {
     role: "Frontend Developer",
@@ -33,7 +35,7 @@ const experiences = [
 ● Led site-wide upgrades for Raptor and Raptor IO applications, optimizing system performance.  <br> 
 ● Practiced Agile methodologies to ensure rapid, iterative development and continuous improvement.<br> 
     `,
-    logo: "/assets/aker.png",
+    logo: "Aker",
   },
 ];
 
