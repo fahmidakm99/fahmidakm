@@ -173,26 +173,23 @@ const Skills = () => {
   return (
     <section
       id="skills"
-        // className="flex flex-col px-6 pt-24 text-white max-w-6xl mx-auto"
-    
-   
-      className=" px-6 pt-24 text-white max-w-6xl mx-auto w-full"
+      className="px-4 sm:px-6 pt-24 text-white max-w-7xl mx-auto w-full"
     >
-      <div className="space-y-3 mb-10">
+      <div className="space-y-3 mb-8 sm:mb-10">
         <p className="text-pink-400 text-sm uppercase tracking-widest">Expertise</p>
-        <h2 className="text-4xl font-bold">Skills</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold">Skills</h2>
       </div>
 
-      {/* Tabs */}
-      <div className="flex gap-6 ">
+      {/* Tabs - scrollable on small screens */}
+      <div className="flex overflow-x-auto gap-4 sm:gap-6 border-b border-gray-700 pb-3 mb-6 scrollbar-hide">
         {skillCategories.map((cat, i) => (
           <button
             key={i}
             onClick={() => setActiveIndex(i)}
-            className={`pb-3 px-5 text-sm font-semibold transition-colors duration-300 ${
+            className={`flex-shrink-0 whitespace-nowrap text-sm sm:text-base font-semibold transition-colors duration-300 ${
               activeIndex === i
-                ? "border-b-4 border-pink-500 text-pink-400"
-                : "text-white hover:text-pink-500"
+                ? "border-b-2 sm:border-b-4 border-pink-500 text-pink-400"
+                : "text-white hover:text-pink-400"
             }`}
           >
             {cat.category}
@@ -200,42 +197,35 @@ const Skills = () => {
         ))}
       </div>
 
-      {/* Skills Cards */}
-      <div className="max-w-6xl mx-auto mt-10 px-4">
-        <div className="flex flex-wrap gap-8">
-          {skillCategories[activeIndex].skills.map(({ name, icon }, index) => (
-  icon ? (
-    <div key={index} className="w-24 flex flex-col items-center">
-      <div className="w-24 h-24 rounded-full overflow-hidden [background-color:#1d1836] shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
-        <img
-          src={icon}
-          alt={`${name} logo`}
-          className="w-16 h-16 object-contain"
-          loading="lazy"
-          draggable={false}
-        />
-      </div>
-      <p className="mt-2 text-sm text-center text-white font-semibold select-none uppercase">
-        {name}
-      </p>
-    </div>
-  ) : (
-    <div
-      key={index}
-      className="w-24 flex flex-col items-center"
-    >
-      <div className="w-24 h-24 flex items-center justify-center text-white text-sm [background-color:#1d1836] rounded-full select-none text-center font-semibold uppercase">
-        {name}
-      </div>
-    </div>
-  )
-))}
-
-        </div>
+      {/* Skills Grid */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6 place-items-center">
+        {skillCategories[activeIndex].skills.map(({ name, icon }, index) => (
+          icon ? (
+            <div key={index} className="flex flex-col items-center w-full">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden [background-color:#1d1836] shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+                <img
+                  src={icon}
+                  alt={`${name} logo`}
+                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+                  loading="lazy"
+                  draggable={false}
+                />
+              </div>
+              <p className="mt-2 text-xs sm:text-sm text-center text-white font-semibold select-none uppercase">
+                {name}
+              </p>
+            </div>
+          ) : (
+            <div key={index} className="flex flex-col items-center w-full">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center text-xs sm:text-sm text-white text-center [background-color:#1d1836] rounded-full font-semibold uppercase">
+                {name}
+              </div>
+            </div>
+          )
+        ))}
       </div>
     </section>
   );
 };
-
 
 export default Skills;

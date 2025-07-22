@@ -60,66 +60,48 @@ const ExperienceCard = ({ exp, index }) => {
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\n/g, "<br />");
 
+  const isEven = index % 2 === 0;
+
   return (
     <motion.div
       ref={ref}
       initial="hidden"
       animate={controls}
       variants={variants}
-      className="relative flex items-top justify-between w-full"
+      className={`relative flex flex-col md:flex-row items-start w-full ${
+        isEven ? "md:flex-row" : "md:flex-row-reverse"
+      }`}
     >
-      {index % 2 === 0 ? (
-        <>
-          <div className="w-1/2 pr-8 text-left">
-            <div className="[background-color:#1d1836] shadow-md rounded-lg p-6 border-l-4 border-pink-500">
-              <h3 className="text-xl font-semibold">{exp.role}</h3>
-              <p className="text-indigo-600 font-medium">{exp.company}</p>
-              <p className="text-gray-500 italic mb-3">{exp.period}</p>
-              <p
-                className="text-white text-left"
-                dangerouslySetInnerHTML={{ __html: formatDescription(exp.description) }}
-              />
-            </div>
-          </div>
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#f6f7e4] border-4 border-pink-500 rounded-full z-10 flex items-center justify-center">
-            {exp.logo && (
-              <img
-                src={exp.logo}
-                alt={`${exp.company} Logo`}
-                className="w-8 h-8 object-contain"
-              />
-            )}
-          </div>
-          <div className="w-1/2"></div>
-        </>
-      ) : (
-        <>
-          <div className="w-1/2"></div>
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#f6f7e4] border-4 border-pink-500 rounded-full z-10 flex items-center justify-center">
-            {exp.logo && (
-              <img
-                src={exp.logo}
-                alt={`${exp.company} Logo`}
-                className="w-8 h-8 object-contain"
-              />
-            )}
-          </div>
-          <div className="w-1/2 pl-8 text-left">
-            <div className="[background-color:#1d1836] shadow-md rounded-lg p-6 border-r-4 border-pink-500">
-              <h3 className="text-xl font-semibold">{exp.role}</h3>
-              <p className="text-indigo-600 font-medium">{exp.company}</p>
-              <p className="text-gray-500 italic mb-3">{exp.period}</p>
-              <p
-                className="text-white"
-                dangerouslySetInnerHTML={{ __html: formatDescription(exp.description) }}
-              />
-            </div>
-          </div>
-        </>
-      )}
+      {/* Logo Dot */}
+      <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-10 h-10 bg-[#f6f7e4] border-4 border-pink-500 rounded-full z-10 flex items-center justify-center">
+        {exp.logo && (
+          <img
+            src={exp.logo}
+            alt={`${exp.company} Logo`}
+            className="w-8 h-8 object-contain"
+          />
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="mt-12 md:mt-0 w-full md:w-1/2 px-2 md:px-8">
+        <div className="[background-color:#1d1836] shadow-md rounded-lg p-6 border-l-4 border-pink-500">
+          <h3 className="text-xl font-semibold">{exp.role}</h3>
+          <p className="text-indigo-600 font-medium">{exp.company}</p>
+          <p className="text-gray-500 italic mb-3">{exp.period}</p>
+          <p
+            className="text-white"
+            dangerouslySetInnerHTML={{ __html: formatDescription(exp.description) }}
+          />
+        </div>
+      </div>
+
+      {/* Empty right side for spacing (desktop only) */}
+      <div className="hidden md:block w-1/2"></div>
     </motion.div>
   );
 };
+
 
 const Experience = () => {
   return (
@@ -133,15 +115,16 @@ const Experience = () => {
       <h2 className="text-4xl space-y-3 mb-10 font-extrabold">Experience</h2>
 
       <div className="relative">
-        {/* Vertical timeline line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-pink-500"></div>
+  {/* Pink vertical line: left on mobile, centered on desktop */}
+  <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-pink-500"></div>
 
-        <div className="flex flex-col gap-24">
-          {experiences.map((exp, index) => (
-            <ExperienceCard exp={exp} key={index} index={index} />
-          ))}
-        </div>
-      </div>
+  <div className="flex flex-col gap-24">
+    {experiences.map((exp, index) => (
+      <ExperienceCard exp={exp} key={index} index={index} />
+    ))}
+  </div>
+</div>
+
 
        {/* 3D Model at bottom */}
       {/* <LogoGrid /> */}

@@ -52,14 +52,14 @@ const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col px-6 pt-24 text-white max-w-6xl mx-auto"
+      className="flex flex-col px-4 sm:px-6 lg:px-8 pt-24 text-white max-w-7xl mx-auto"
     >
-      <div className="space-y-3 mb-10">
+      <div className="space-y-3 mb-10 text-left sm:text-left">
         <p className="text-pink-400 text-sm uppercase tracking-widest">
           Introduction
         </p>
-        <h2 className="text-4xl font-extrabold">Overview</h2>
-        <p className="text-lg text-gray-300 leading-relaxed">
+        <h2 className="text-3xl sm:text-4xl font-extrabold">Overview</h2>
+        <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
           I'm a skilled{" "}
           <span className="text-white font-semibold">Frontend developer</span>{" "}
           with expertise in Angular, Ionic, Js, HTML, CSS, and Next.js. I enjoy
@@ -70,7 +70,10 @@ const About = () => {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-8" style={{ perspective: "1000px" }}>
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 justify-center"
+        style={{ perspective: "1000px" }}
+      >
         {skills.map((skill, i) => (
           <motion.div
             key={i}
@@ -80,10 +83,10 @@ const About = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div
-              className="w-48 h-48 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-md cursor-pointer
+              className="w-full h-48 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-md cursor-pointer
                 transition-transform duration-200 ease-out transform-gpu"
               style={{
-                transform: `perspective(1000px) rotateX(${rotations[i].rotateX}deg) rotateY(${rotations[i].rotateY}deg)`,
+                transform: `rotateX(${rotations[i].rotateX}deg) rotateY(${rotations[i].rotateY}deg)`,
                 transformStyle: "preserve-3d",
               }}
               onMouseMove={(e) => handleMouseMove(e, i)}
@@ -92,10 +95,10 @@ const About = () => {
               <img
                 src={skill.icon}
                 alt={skill.name}
-                className="w-16 h-16 mb-4 object-contain"
+                className="w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4 object-contain"
                 draggable={false}
               />
-              <span className="text-white font-semibold text-lg">
+              <span className="text-white font-semibold text-sm sm:text-lg">
                 {skill.name}
               </span>
             </div>

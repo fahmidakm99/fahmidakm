@@ -72,80 +72,76 @@ const Projects = () => {
       className="min-h-screen px-6 pt-24 text-white max-w-6xl mx-auto w-full"
       id="projects"
     >
-      <div className="space-y-3 mb-10">
-        <p className="text-pink-400 text-sm uppercase tracking-widest">My Work</p>
-        <h2 className="text-4xl font-bold">Projects</h2>
+   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {projectData.map((project, i) => (
+    <div
+      key={i}
+      className="bg-[#1d1836] rounded-xl shadow-lg overflow-hidden flex flex-col transition hover:shadow-xl 
+      backdrop-blur-md border border-white/10 cursor-pointer w-full mx-auto"
+      style={{
+        transform: `perspective(1000px) rotateX(${rotations[i].rotateX}deg) rotateY(${rotations[i].rotateY}deg)`,
+        transformStyle: "preserve-3d",
+        transition: "transform 0.2s ease-out",
+      }}
+      onMouseMove={(e) => handleMouseMove(e, i)}
+      onMouseLeave={() => handleMouseLeave(i)}
+    >
+      <div className="p-4 sm:p-5">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-52 sm:h-60 object-cover rounded-md"
+        />
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {projectData.map((project, i) => (
-          <div
-            key={i}
-            className="[background-color:#1d1836] rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-xl transition w-[85%] mx-auto
-              backdrop-blur-md border border-white/10 cursor-pointer"
-            style={{
-              transform: `perspective(1000px) rotateX(${rotations[i].rotateX}deg) rotateY(${rotations[i].rotateY}deg)`,
-              transformStyle: "preserve-3d",
-              transition: "transform 0.2s ease-out",
-            }}
-            onMouseMove={(e) => handleMouseMove(e, i)}
-            onMouseLeave={() => handleMouseLeave(i)}
+      <div className="px-4 sm:px-5 pb-5 pt-1 flex flex-col justify-between flex-grow">
+        <div>
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{project.title}</h3>
+          <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+
+          {expanded === i && (
+            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 mb-4">
+              {project.features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div className="flex justify-between items-center">
+          <button
+            className="text-sm text-gray-300 hover:underline"
+            onClick={() => toggleFeatures(i)}
           >
-            <div className="m-5">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-62 object-cover rounded-md"
-              />
-            </div>
+            {expanded === i ? "Hide" : "View More"}
+          </button>
+          <a
+            href={project.link}
+            className="text-sm text-gray-300 font-medium hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {project.linkText}
+          </a>
+        </div>
 
-            <div className="px-5 pb-5 pt-1 flex flex-col justify-between flex-grow">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-300 text-sm mb-4">{project.description}</p>
-
-                {expanded === i && (
-                  <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 mb-4 ease-in duration-300">
-                    {project.features.map((feature, idx) => (
-                      <li key={idx}>{feature}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-
-              <div className="flex justify-between items-center">
-                <button
-                  className="text-sm text-gray-300 hover:underline"
-                  onClick={() => toggleFeatures(i)}
-                >
-                  {expanded === i ? "Hide" : "View More"}
-                </button>
-                <a
-                  href={project.link}
-                  className="text-sm text-gray-300 font-medium hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.linkText}
-                </a>
-              </div>
-
-              <div className="flex flex-wrap mb-4 gap-2 mt-3">
-                {project.tech.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className={`text-sm font-medium py-1 rounded select-none border border-transparent ${getBadgeColor(
-                      idx
-                    )}`}
-                  >
-                    #{tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+        <div className="flex flex-wrap gap-2 mt-3">
+          {project.tech.map((tech, idx) => (
+            <span
+              key={idx}
+              className={`text-sm font-medium py-1 rounded select-none border border-transparent ${getBadgeColor(
+                idx
+              )}`}
+            >
+              #{tech}
+            </span>
+          ))}
+        </div>
       </div>
+    </div>
+  ))}
+</div>
+
     </section>
   );
 };
