@@ -2,7 +2,7 @@ import profileImg from './profile.jpg';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center text-white px-4 sm:px-6 md:px-12 bg-gradient-to-br from-[#0f0c29] to-[#302b63]">
+    <section className="min-h-screen flex items-center justify-center text-white px-4 sm:px-6 md:px-12 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto w-full py-12">
         
         {/* TEXT COLUMN */}
