@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 
 const Model = () => {
-  const gltf = useGLTF(`${process.env.PUBLIC_URL}/assets/cute.glb`);
+  const gltf = useGLTF(`${process.env.PUBLIC_URL}/assets/cute-optimized.glb`);
 
   const modelRef = useRef();
 
